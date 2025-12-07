@@ -41,26 +41,34 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <header class="row header_1">
 
-      <li class="eight columns"></li>
+      <div class="nine columns"></div>
 
 
-      <li class="one columns tabs">
+      <div class="one columns tabs">
         <p class="tabs">
-          <a href="https://www.linkedin.com/in/vedgshah/" target="_blank">LinkedIn</a>
+          <a href="https://www.linkedin.com/in/vedgshah/" target="_blank" aria-label="LinkedIn" title="LinkedIn">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="#ffffff" role="img" aria-hidden="true">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.049c.476-.9 1.637-1.852 3.372-1.852 3.605 0 4.27 2.373 4.27 5.463v6.28zM5.337 7.433a2.062 2.062 0 11.001-4.124 2.062 2.062 0 01-.001 4.124zm1.777 13.019H3.56V9h3.554v11.452z" />
+            </svg>
+          </a>
         </p>
-      </li>
+      </div>
 
-      <li class="one column tabs">
+      <div class="one column tabs">
         <p class="tabs">
-          <a href="https://github.com/dev-ved30" target="_blank">GitHub</a>
+          <a href="https://github.com/dev-ved30" target="_blank" aria-label="GitHub" title="GitHub">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="#ffffff" role="img" aria-hidden="true">
+              <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.725-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.757-1.333-1.757-1.089-.745.083-.73.083-.73 1.205.085 1.84 1.237 1.84 1.237 1.07 1.835 2.807 1.305 3.492.998.107-.776.418-1.305.762-1.605-2.665-.305-5.466-1.334-5.466-5.932 0-1.31.468-2.381 1.235-3.221-.123-.303-.535-1.523.117-3.176 0 0 1.008-.322 3.301 1.23a11.52 11.52 0 013.003-.404c1.018.005 2.045.138 3.003.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.241 2.873.118 3.176.77.84 1.233 1.911 1.233 3.221 0 4.61-2.804 5.625-5.476 5.921.43.372.823 1.102.823 2.222 0 1.606-.015 2.898-.015 3.293 0 .322.216.694.825.576C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12z" />
+            </svg>
+          </a>
         </p>
-    </li>
+    </div>
 
-    <li class="one columns tabs">
+    <div class="one columns tabs">
         <p class="tabs">
             <a href="assets/Ved_Shah_CV.pdf" target="_blank">CV</a>
         </p>
-    </li>
+    </div>
 
   </header>
 
@@ -68,8 +76,9 @@
     <img src="images/profile.jpg" alt="Profile" width="200">
     <br>
     <h1>Ved Shah</h1>
-    <p>Northwestern University</p>
-    <input type="submit" value="About me" onClick="document.getElementById('home').scrollIntoView();" id="scroll">
+    <p><b>Northwestern University</b></p>
+    <p><b>Astrophysics x Machine Learning</b></p>
+    <!-- <input type="submit" value="About me" onClick="document.getElementById('home').scrollIntoView();" id="scroll"> -->
   </section>
   <div id="particle-canvas"></div>
 
@@ -77,40 +86,53 @@
 
 
     <!-- About me  -->
-    <h1 style="text-align:justify; padding-left: 7%;">ABOUT ME</h1>
-    <hr style="width:50%;text-align:left;margin-left:7%">
-    <p style="padding-left: 7%; padding-right: 7%; text-align:justify;">
-        I'm a PhD student at Northwestern University's Department of Physics and Astronomy and at the Center for Interdisciplinary Exploration and Research in Astrophysics (CIERA). I am working at the intersection 
-        of time-domain astronomy and machine learning with Professor Adam Miller. Specifically, I am interested in building state-of-the-art machine learning classification and anomaly detection systems 
-        for current and future astrophysical surveys, like the Legacy Survey of Space and Time (LSST).
-        <br>
-        <br>
+  <h1 style="text-align:justify; padding-left: 20%;">ABOUT ME</h1>
+  <hr style="width:50%;text-align:left;margin-left:20%">
+    <p style="padding-left: 20%; padding-right: 20%; text-align:justify;">
+        I'm a PhD student at Northwestern University's Department of Physics and Astronomy, working with Professor Adam Miller. I split my time between the Center for Interdisciplinary Exploration and Research in Astrophysics (CIERA) and the SkAI Institute. 
         I graduated with <b>James Scholar Honors</b> from the University of Illinois Urbana-Champaign with a Bachelors in Computer Science and Astronomy and a minor in Statistics. 
-        At Illinois I received the  <b>Stanley Wyatt Memorial Award</b>, presented to the graduating Astronomy major with the most outstanding GPA and track record of 
-        undergraduate research. During my time there, I also received the <b>2021 LSSTC Science Catalyst Grant</b>, the <b>2022 Research Park Best Technical Innovator Award (Finalist)</b>, and the <b>2024 Preble Scholarship</b> for my research and engineering work in multi-messenger astronomy and machine learning. 
-        I did my senior thesis work with Professor Gautham Narayan, working on modelling kilonova discovery rates and developing new ML methods to find rare transients.
+        At Illinois I was a recipient of the  <b>Stanley Wyatt Memorial Award</b>, presented to the graduating Astronomy major with the most outstanding GPA and track record of 
+        undergraduate research. During my time there, I also received the <b>2021 LSSTC Science Catalyst Grant</b>, the <b>2022 Research Park Best Technical Innovator Award (Finalist)</b>, and the <b>2024 Preble Fellowship</b> for my research and engineering 
+        work in multi-messenger astronomy and machine learning. I did my undergraduate thesis work with Professor Gautham Narayan, working on modelling kilonova discovery rates and developing new ML methods to find rare transients.
         <br>
         <br>
         In the past, I have interned in both research and engineering roles at Country Financial, the National Centre for Supercomputing Applications (NCSA), and 
-        IIT Bombay. Fundamentally, I am interested in applying computational methods to solve scientific problems. In particular, I am interested in machine learning and 
-        scientific computing. 
+        IIT Bombay. Fundamentally, I am interested in applying computational methods to solve scientific problems.
         <br>
         <br>
+    </p>
+
+        <!-- About me  -->
+  <h1 style="text-align:justify; padding-left: 20%;">RESEARCH</h1>
+  <hr style="width:50%;text-align:left;margin-left:20%">
+    <p style="padding-left: 20%; padding-right: 20%; text-align:justify;">
+    My research focuses on using machine learning and statistics to make sense of rapidly changing astronomical phenomena in large surveys. I work at the intersection of time-domain astronomy and computational astrophysics, building classification and 
+    anomaly-detection methods to identify rare or unusual transients—such as kilonovae and other explosive events—in massive data streams from projects like the Legacy Survey of Space and Time (LSST), the Zwicky Transient Facility (ZTF), and LS4. In the 
+    past, a major part of my work involved modeling kilonova discovery rates and developing methods to orchestrate follow-up observations, helping astronomers find electromagnetic counterparts to gravitational-wave events more efficiently.
     </p>
 
     <!-- Publications -->
-    <h1 style="text-align:justify; padding-left: 7%;">PUBLICATIONS</h1>
-    <hr style="width:50%;text-align:left;margin-left:7%">
-    <p style="padding-left: 7%; padding-right: 7%; text-align:justify;">
-      You can find an updated list of my publication on <a style="color: #56baed;" href="https://scholar.google.com/citations?user=yOuOzAwAAAAJ" target="_blank">Google Scholar</a> or on my <a href="assets/Ved_Shah_CV.pdf" target="_blank">CV</a>.
+  <h1 style="text-align:justify; padding-left: 20%;">PUBLICATIONS</h1>
+  <hr style="width:50%;text-align:left;margin-left:20%">
+    <p style="padding-left: 20%; padding-right: 20%; text-align:justify;">
+      You can find an updated list of my publication on <a style="color: #56baed;" href="https://scholar.google.com/citations?user=yOuOzAwAAAAJ" target="_blank">Google Scholar</a>, <a style="color: #56baed;" href="https://ui.adsabs.harvard.edu/public-libraries/X5KGbQvlTMGev08r01DNOA" target="_blank">ADS</a>, or on my <a href="assets/Ved_Shah_CV.pdf" target="_blank">CV</a>.
       <br>
       <br>
     </p>
 
+    <!-- <div class="publication-links" style="padding-left: 20%; padding-right: 20%;">
+      <a class="publication-link" href="https://scholar.google.com/citations?user=yOuOzAwAAAAJ" target="_blank" rel="noopener">
+        Google Scholar
+      </a>
+      <a class="publication-link" href="https://ui.adsabs.harvard.edu/search/q=author%3AShah%2C%20Ved&sort=date%20desc" target="_blank" rel="noopener">
+        NASA ADS   
+      </a>
+    </div> -->
+
     <!-- Find me -->
-    <h1 style="text-align:justify; padding-left: 7%;"">FIND ME</h1>
-    <hr style="width:50%;text-align:left;margin-left:7%">
-    <p style="padding-left: 7%; padding-right: 7%; text-align:justify;">
+  <h1 style="text-align:justify; padding-left: 20%;"">REACH OUT</h1>
+  <hr style="width:50%;text-align:left;margin-left:20%">
+    <p style="padding-left: 20%; padding-right: 20%; text-align:justify;">
       Feel free to reach out over email or LinkedIn if you want to chat!
       <br>
       <br>
@@ -123,7 +145,7 @@
       <b>ORCiD: </b><a style="color: #56baed;" href="https://orcid.org/0009-0009-1590-2318" target="_blank">0009-0009-1590-2318</a>
       <br>
       <br>
-      PS: Because of really <a style="color: #56baed;" href="https://en.wikipedia.org/wiki/Email-address_harvesting" target="_blank">annoying bots</a> 🤖, I am no longer making my email available here. If you are a human, this information is only a <a style="color: #56baed;" href="https://ciera.northwestern.edu/directory/ved-shah/" target="_blank">click</a> away.
+      PS: Direct email links are behind the Northwestern directory to keep the bots away 🤖
       <br>
       <br>
     </p> 
@@ -137,7 +159,7 @@
     <p>
       <b>&lt;/&gt;</b> with ☕️ 
       <br>
-      © Ved Shah, 2025
+      © Ved Shah, 2024-2026
     </p>
   </footer>
 
