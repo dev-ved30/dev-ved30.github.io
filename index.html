@@ -51,9 +51,41 @@
             color: var(--text-primary);
             line-height: 1.6;
             overflow-x: hidden;
+            position: relative;
         }
         
-        /* Subtle Background Pattern */
+        /* Rubin Observatory Background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('images/rubin.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0.75;
+            z-index: 0;
+            pointer-events: none;
+        }
+        
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(74, 144, 226, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(74, 144, 226, 0.05) 0%, transparent 50%);
+            z-index: 0;
+            pointer-events: none;
+        }
+        
+        /* Starfield Background */
         #starfield {
             position: fixed;
             top: 0;
@@ -61,8 +93,39 @@
             width: 100%;
             height: 100%;
             z-index: 0;
-            opacity: 0.4;
+            opacity: 0.6;
         }
+        
+        /* Shooting stars */
+        .shooting-star {
+            position: fixed;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            box-shadow: 0 0 4px 2px rgba(255, 255, 255, 0.5);
+            z-index: 0;
+            animation: shoot 3s linear infinite;
+            opacity: 0;
+        }
+        
+        @keyframes shoot {
+            0% {
+                opacity: 0;
+                transform: translate(0, 0) rotate(-45deg);
+            }
+            10% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+                transform: translate(-200px, 200px) rotate(-45deg);
+            }
+        }
+        
+        .shooting-star:nth-child(1) { top: 10%; left: 80%; animation-delay: 2s; }
+        .shooting-star:nth-child(2) { top: 30%; left: 60%; animation-delay: 5s; }
+        .shooting-star:nth-child(3) { top: 50%; left: 90%; animation-delay: 8s; }
         
         /* Navigation */
         nav {
@@ -90,6 +153,21 @@
             font-weight: 600;
             color: var(--text-primary);
             letter-spacing: -0.02em;
+            position: relative;
+        }
+        
+        nav .logo::before {
+            content: '✦';
+            position: absolute;
+            left: -20px;
+            color: var(--accent-primary);
+            font-size: 0.8rem;
+            animation: twinkle 2s ease-in-out infinite;
+        }
+        
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
         }
         
         /* Theme Toggle Button */
@@ -143,6 +221,24 @@
         
         [data-theme="light"] #starfield {
             opacity: 0.25;
+        }
+        
+        [data-theme="light"] body::before {
+            background-image: url('images/rubin.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0.5;
+        }
+        
+        [data-theme="light"] body::after {
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(74, 144, 226, 0.04) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(74, 144, 226, 0.03) 0%, transparent 50%);
+        }
+        
+        [data-theme="light"] .shooting-star {
+            display: none;
         }
         
         nav .nav-links {
@@ -227,9 +323,30 @@
             height: 160px;
             border-radius: 50%;
             border: 2px solid var(--accent-primary);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            box-shadow: 
+                0 4px 20px rgba(0, 0, 0, 0.15),
+                0 0 60px rgba(74, 144, 226, 0.3),
+                inset 0 0 0 1px rgba(255, 255, 255, 0.1);
             margin-bottom: 2rem;
             object-fit: cover;
+            position: relative;
+        }
+        
+        .profile-image::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            border-radius: 50%;
+            background: conic-gradient(from 0deg, transparent, rgba(74, 144, 226, 0.2), transparent);
+            animation: rotate 8s linear infinite;
+            z-index: -1;
+        }
+        
+        @keyframes rotate {
+            to { transform: rotate(360deg); }
         }
         
         h1 {
@@ -287,6 +404,18 @@
             margin-bottom: 1.5rem;
             color: var(--text-primary);
             letter-spacing: -0.02em;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::before {
+            content: '◆';
+            position: absolute;
+            left: -30px;
+            color: var(--accent-primary);
+            font-size: 0.7rem;
+            top: 50%;
+            transform: translateY(-50%);
         }
         
         .section-title::after {
@@ -294,9 +423,10 @@
             display: block;
             width: 60px;
             height: 3px;
-            background: var(--accent-primary);
+            background: linear-gradient(90deg, var(--accent-primary), transparent);
             margin-top: 0.8rem;
             border-radius: 2px;
+            box-shadow: 0 0 10px rgba(74, 144, 226, 0.3);
         }
         
         .content-box {
@@ -307,12 +437,29 @@
             margin-top: 1.5rem;
             backdrop-filter: blur(10px);
             transition: all 0.2s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .content-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(74, 144, 226, 0.03), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .content-box:hover::before {
+            left: 100%;
         }
         
         .content-box:hover {
             background: rgba(255, 255, 255, 0.04);
             border-color: var(--accent-primary);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 24px rgba(74, 144, 226, 0.15);
         }
         
         .content-box p {
@@ -335,11 +482,29 @@
             margin-top: 1rem;
             transition: all 0.2s ease;
             border-left: 3px solid var(--accent-primary);
+            position: relative;
+        }
+        
+        .publication-item::after {
+            content: '';
+            position: absolute;
+            left: -3px;
+            top: 0;
+            width: 3px;
+            height: 0;
+            background: linear-gradient(180deg, var(--accent-primary), rgba(74, 144, 226, 0.3));
+            transition: height 0.3s ease;
+            box-shadow: 0 0 8px var(--accent-primary);
+        }
+        
+        .publication-item:hover::after {
+            height: 100%;
         }
         
         .publication-item:hover {
             background: rgba(255, 255, 255, 0.04);
             border-color: var(--accent-primary);
+            box-shadow: 0 2px 16px rgba(74, 144, 226, 0.1);
         }
         
         .pub-number {
@@ -490,6 +655,11 @@
 <body>
     <!-- Starfield Background -->
     <canvas id="starfield"></canvas>
+    
+    <!-- Shooting Stars -->
+    <div class="shooting-star"></div>
+    <div class="shooting-star"></div>
+    <div class="shooting-star"></div>
     
     <!-- Navigation -->
     <nav>
@@ -705,13 +875,31 @@
                 const centerX = canvas.width / 2 + x;
                 const centerY = canvas.height / 2 + y;
                 
-                const opacity = 1 - this.z / canvas.width;
+                const opacity = (1 - this.z / canvas.width) * 0.8;
                 const theme = html.getAttribute('data-theme');
-                const color = theme === 'light' ? '124, 58, 237' : '167, 139, 250';
-                ctx.fillStyle = `rgba(${color}, ${opacity})`;
+                
+                // Create twinkling effect
+                const twinkle = Math.sin(Date.now() * 0.001 + this.x) * 0.3 + 0.7;
+                
+                // Different star colors for variety
+                const colors = [
+                    '200, 220, 255', // Blue-white
+                    '255, 255, 255', // White
+                    '150, 180, 255', // Light blue
+                ];
+                const color = theme === 'light' ? '74, 144, 226' : colors[Math.floor(this.x * 3) % 3];
+                
+                ctx.fillStyle = `rgba(${color}, ${opacity * twinkle})`;
                 ctx.beginPath();
                 ctx.arc(centerX, centerY, s, 0, Math.PI * 2);
                 ctx.fill();
+                
+                // Add glow for brighter stars
+                if (opacity > 0.7) {
+                    ctx.shadowBlur = 3;
+                    ctx.shadowColor = `rgba(${color}, ${opacity})`;
+                }
+                ctx.shadowBlur = 0;
             }
         }
         
