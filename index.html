@@ -20,27 +20,25 @@
         }
         
         :root {
-            --bg-dark: #0a0e27;
-            --bg-darker: #050810;
-            --accent-purple: #a78bfa;
-            --accent-blue: #60a5fa;
-            --accent-pink: #ec4899;
-            --accent-cyan: #22d3ee;
-            --text-primary: #f1f5f9;
-            --text-secondary: #cbd5e1;
-            --text-muted: #94a3b8;
+            --bg-dark: #0f1419;
+            --bg-darker: #0a0e13;
+            --accent-primary: #4a90e2;
+            --accent-secondary: #2c5aa0;
+            --text-primary: #e8eaed;
+            --text-secondary: #b8bcc2;
+            --text-muted: #888c94;
+            --border-color: rgba(74, 144, 226, 0.15);
         }
         
         [data-theme="light"] {
-            --bg-dark: #f8fafc;
-            --bg-darker: #ffffff;
-            --accent-purple: #7c3aed;
-            --accent-blue: #2563eb;
-            --accent-pink: #db2777;
-            --accent-cyan: #0891b2;
-            --text-primary: #0f172a;
-            --text-secondary: #334155;
-            --text-muted: #64748b;
+            --bg-dark: #ffffff;
+            --bg-darker: #f5f7fa;
+            --accent-primary: #2c5aa0;
+            --accent-secondary: #1a3a6b;
+            --text-primary: #1a1a1a;
+            --text-secondary: #4a4a4a;
+            --text-muted: #767676;
+            --border-color: rgba(44, 90, 160, 0.15);
         }
         
         html {
@@ -55,7 +53,7 @@
             overflow-x: hidden;
         }
         
-        /* Starfield Background */
+        /* Subtle Background Pattern */
         #starfield {
             position: fixed;
             top: 0;
@@ -63,6 +61,7 @@
             width: 100%;
             height: 100%;
             z-index: 0;
+            opacity: 0.4;
         }
         
         /* Navigation */
@@ -70,11 +69,11 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(10, 14, 39, 0.8);
+            background: rgba(15, 20, 25, 0.95);
             backdrop-filter: blur(10px);
             z-index: 100;
-            padding: 1rem 2rem;
-            border-bottom: 1px solid rgba(167, 139, 250, 0.2);
+            padding: 1.2rem 2rem;
+            border-bottom: 1px solid var(--border-color);
         }
         
         nav .nav-content {
@@ -86,72 +85,64 @@
         }
         
         nav .logo {
-            font-family: 'Space Mono', monospace;
-            font-size: 1.2rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, var(--accent-purple), var(--accent-cyan));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            font-family: 'Inter', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            letter-spacing: -0.02em;
         }
         
         /* Theme Toggle Button */
         .theme-toggle {
             width: 40px;
             height: 40px;
-            border: 1px solid rgba(167, 139, 250, 0.3);
-            border-radius: 8px;
-            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.03);
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
             margin-left: 1rem;
         }
         
         .theme-toggle:hover {
-            background: rgba(167, 139, 250, 0.1);
-            border-color: var(--accent-purple);
-            transform: translateY(-2px);
+            background: rgba(74, 144, 226, 0.1);
+            border-color: var(--accent-primary);
         }
         
         .theme-toggle svg {
             width: 20px;
             height: 20px;
-            color: var(--accent-purple);
-        }
-        
-        [data-theme="light"] .theme-toggle {
-            border-color: rgba(124, 58, 237, 0.3);
+            color: var(--accent-primary);
         }
         
         [data-theme="light"] nav {
-            background: rgba(248, 250, 252, 0.9);
-            border-bottom: 1px solid rgba(124, 58, 237, 0.2);
-        }
-        
-        [data-theme="light"] .social-icons a {
-            border-color: rgba(124, 58, 237, 0.3);
+            background: rgba(255, 255, 255, 0.95);
+            border-bottom: 1px solid var(--border-color);
         }
         
         [data-theme="light"] .content-box,
         [data-theme="light"] .publication-item,
         [data-theme="light"] .contact-item {
-            background: rgba(255, 255, 255, 0.6);
-            border-color: rgba(124, 58, 237, 0.2);
+            background: rgba(245, 247, 250, 0.5);
+            border-color: var(--border-color);
         }
         
         [data-theme="light"] .content-box:hover,
         [data-theme="light"] .publication-item:hover,
         [data-theme="light"] .contact-item:hover {
-            background: rgba(255, 255, 255, 0.9);
-            border-color: rgba(124, 58, 237, 0.4);
+            background: rgba(245, 247, 250, 0.8);
         }
         
         [data-theme="light"] footer {
-            background: rgba(248, 250, 252, 0.9);
-            border-top: 1px solid rgba(124, 58, 237, 0.2);
+            background: rgba(255, 255, 255, 0.95);
+            border-top: 1px solid var(--border-color);
+        }
+        
+        [data-theme="light"] #starfield {
+            opacity: 0.25;
         }
         
         nav .nav-links {
@@ -170,7 +161,7 @@
         }
         
         nav a:hover {
-            color: var(--accent-purple);
+            color: var(--accent-primary);
         }
         
         nav a::after {
@@ -180,7 +171,7 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: linear-gradient(90deg, var(--accent-purple), var(--accent-cyan));
+            background: var(--accent-primary);
             transition: width 0.3s ease;
         }
         
@@ -199,14 +190,14 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 1px solid rgba(167, 139, 250, 0.3);
-            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
             transition: all 0.3s ease;
         }
         
         .social-icons a:hover {
-            background: rgba(167, 139, 250, 0.1);
-            border-color: var(--accent-purple);
+            background: rgba(74, 144, 226, 0.1);
+            border-color: var(--accent-primary);
             transform: translateY(-2px);
         }
         
@@ -232,41 +223,34 @@
         }
         
         .profile-image {
-            width: 180px;
-            height: 180px;
+            width: 160px;
+            height: 160px;
             border-radius: 50%;
-            border: 3px solid var(--accent-purple);
-            box-shadow: 0 0 40px rgba(167, 139, 250, 0.5);
+            border: 2px solid var(--accent-primary);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
             margin-bottom: 2rem;
             object-fit: cover;
-            animation: float 3s ease-in-out infinite;
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
         }
         
         h1 {
-            font-size: 4rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, var(--accent-purple), var(--accent-cyan));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            font-size: 3.5rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            color: var(--text-primary);
+            letter-spacing: -0.03em;
         }
         
         .subtitle {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             color: var(--text-secondary);
             margin-bottom: 0.5rem;
+            font-weight: 400;
         }
         
         .tagline {
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: var(--text-muted);
-            font-family: 'Space Mono', monospace;
+            font-weight: 400;
         }
         
         .scroll-indicator {
@@ -285,7 +269,7 @@
         .scroll-indicator svg {
             width: 24px;
             height: 24px;
-            stroke: var(--accent-purple);
+            stroke: var(--accent-primary);
         }
         
         /* Sections */
@@ -298,41 +282,37 @@
         }
         
         .section-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            display: inline-block;
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+            letter-spacing: -0.02em;
         }
         
         .section-title::after {
             content: '';
             display: block;
-            width: 100px;
-            height: 4px;
-            background: linear-gradient(90deg, var(--accent-purple), var(--accent-cyan));
-            margin-top: 1rem;
+            width: 60px;
+            height: 3px;
+            background: var(--accent-primary);
+            margin-top: 0.8rem;
             border-radius: 2px;
         }
         
         .content-box {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(167, 139, 250, 0.2);
-            border-radius: 16px;
-            padding: 2.5rem;
-            margin-top: 2rem;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-top: 1.5rem;
             backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
         }
         
         .content-box:hover {
-            background: rgba(255, 255, 255, 0.05);
-            border-color: rgba(167, 139, 250, 0.4);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 40px rgba(167, 139, 250, 0.2);
+            background: rgba(255, 255, 255, 0.04);
+            border-color: var(--accent-primary);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
         
         .content-box p {
@@ -342,32 +322,31 @@
         }
         
         .highlight {
-            color: var(--accent-purple);
-            font-weight: 600;
+            color: var(--accent-primary);
+            font-weight: 500;
         }
         
         /* Publications */
         .publication-item {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(167, 139, 250, 0.2);
-            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
             padding: 1.5rem;
-            margin-top: 1.5rem;
-            transition: all 0.3s ease;
-            border-left: 3px solid var(--accent-purple);
+            margin-top: 1rem;
+            transition: all 0.2s ease;
+            border-left: 3px solid var(--accent-primary);
         }
         
         .publication-item:hover {
-            background: rgba(255, 255, 255, 0.05);
-            border-color: var(--accent-purple);
-            transform: translateX(10px);
+            background: rgba(255, 255, 255, 0.04);
+            border-color: var(--accent-primary);
         }
         
         .pub-number {
-            font-family: 'Space Mono', monospace;
-            color: var(--accent-cyan);
-            font-weight: 700;
-            font-size: 0.9rem;
+            font-family: 'Inter', sans-serif;
+            color: var(--accent-primary);
+            font-weight: 600;
+            font-size: 0.85rem;
         }
         
         .pub-authors {
@@ -389,20 +368,19 @@
             align-items: center;
             gap: 0.5rem;
             padding: 0.5rem 1rem;
-            background: rgba(167, 139, 250, 0.1);
-            border: 1px solid rgba(167, 139, 250, 0.3);
-            border-radius: 8px;
-            color: var(--accent-purple);
+            background: rgba(74, 144, 226, 0.08);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            color: var(--accent-primary);
             text-decoration: none;
             font-size: 0.9rem;
             font-weight: 500;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
         }
         
         .pub-link:hover {
-            background: rgba(167, 139, 250, 0.2);
-            border-color: var(--accent-purple);
-            transform: translateY(-2px);
+            background: rgba(74, 144, 226, 0.15);
+            border-color: var(--accent-primary);
         }
         
         /* Contact Section */
@@ -414,36 +392,36 @@
         }
         
         .contact-item {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(167, 139, 250, 0.2);
-            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
             padding: 1.5rem;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
             text-align: center;
         }
         
         .contact-item:hover {
-            background: rgba(255, 255, 255, 0.05);
-            border-color: var(--accent-purple);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(167, 139, 250, 0.2);
+            background: rgba(255, 255, 255, 0.04);
+            border-color: var(--accent-primary);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
         
         .contact-item strong {
             display: block;
-            color: var(--accent-cyan);
+            color: var(--text-primary);
             margin-bottom: 0.5rem;
-            font-size: 1rem;
+            font-size: 0.95rem;
+            font-weight: 600;
         }
         
         .contact-item a {
-            color: var(--accent-purple);
+            color: var(--accent-primary);
             text-decoration: none;
-            transition: color 0.3s ease;
+            transition: color 0.2s ease;
         }
         
         .contact-item a:hover {
-            color: var(--accent-cyan);
+            color: var(--accent-secondary);
         }
         
         /* Footer */
@@ -452,8 +430,8 @@
             z-index: 1;
             text-align: center;
             padding: 3rem 2rem;
-            background: rgba(5, 8, 16, 0.8);
-            border-top: 1px solid rgba(167, 139, 250, 0.2);
+            background: rgba(10, 14, 19, 0.95);
+            border-top: 1px solid var(--border-color);
         }
         
         footer p {
@@ -476,11 +454,11 @@
         /* Responsive */
         @media (max-width: 768px) {
             h1 {
-                font-size: 2.5rem;
+                font-size: 2.2rem;
             }
             
             .subtitle {
-                font-size: 1.2rem;
+                font-size: 1.1rem;
             }
             
             nav .nav-links {
@@ -516,7 +494,7 @@
     <!-- Navigation -->
     <nav>
         <div class="nav-content">
-            <div class="logo">&lt;VS/&gt;</div>
+            <div class="logo">Ved Shah</div>
             <div class="nav-links">
                 <a href="#about">About</a>
                 <a href="#research">Research</a>
@@ -591,11 +569,11 @@
         <div class="content-box">
             <p>
                 You can find a complete list of my publications on 
-                <a href="https://scholar.google.com/citations?user=yOuOzAwAAAAJ" target="_blank" style="color: var(--accent-purple); text-decoration: none;">Google Scholar</a>, 
-                <a href="https://ui.adsabs.harvard.edu/public-libraries/X5KGbQvlTMGev08r01DNOA" target="_blank" style="color: var(--accent-purple); text-decoration: none;">ADS</a>, or on my 
-                <a href="assets/Ved_Shah_CV.pdf" target="_blank" style="color: var(--accent-purple); text-decoration: none;">CV</a>.
+                <a href="https://scholar.google.com/citations?user=yOuOzAwAAAAJ" target="_blank" style="color: var(--accent-primary); text-decoration: none;">Google Scholar</a>, 
+                <a href="https://ui.adsabs.harvard.edu/public-libraries/X5KGbQvlTMGev08r01DNOA" target="_blank" style="color: var(--accent-primary); text-decoration: none;">ADS</a>, or on my 
+                <a href="assets/Ved_Shah_CV.pdf" target="_blank" style="color: var(--accent-primary); text-decoration: none;">CV</a>.
             </p>
-            <p style="margin-top: 2rem; font-weight: 600; color: var(--accent-cyan);">Selected First Author Publications:</p>
+            <p style="margin-top: 2rem; font-weight: 600; color: var(--text-primary);">Selected First Author Publications:</p>
         </div>
         
         <div class="publication-item">
