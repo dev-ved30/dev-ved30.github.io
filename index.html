@@ -22,29 +22,62 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="stylesheet" href="styles/skeleton.css">
   <link rel="stylesheet" href="styles/normalize.css">
+  <style>
+    .name-link {
+      display: inline-block;
+      color: inherit;
+      text-decoration: none;
+      background-image: linear-gradient(white, white);
+      background-size: 0% 2px;
+      background-repeat: no-repeat;
+      background-position: left bottom;
+      transition: background-size 300ms ease;
+    }
+    .name-link:hover {
+      color: inherit;
+      background-size: 100% 2px;
+    }
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 12px;
+    }
+    .social-icons a {
+      opacity: 0.8;
+      transition: opacity 200ms ease, transform 200ms ease;
+    }
+    .social-icons a:hover {
+      opacity: 1;
+      transform: translateY(-2px);
+    }
+    .social-icons img {
+      border-radius: 0;
+      display: block;
+      background: transparent;
+    }
+    @media (max-width: 768px) {
+      .frontpagetext {
+        left: 0;
+        min-height: auto;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+  </style>
 
 </head>
 
 <body>
-    <!-- Importing Ajax
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-
-
-  <!-- Importing Java Script to Call the API
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-
-  <!-- CSS
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <!-- CSS -->
   <link rel="stylesheet" href="styles/background.css">
 
   <!-- Primary Page Layout
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <header class="row header_1">
+  <!-- <header class="row header_1">
+    <div class="nine columns"></div>
 
-      <div class="nine columns"></div>
-
-
-      <div class="one columns tabs">
+    <div class="one columns tabs">
         <p class="tabs">
           <a href="https://www.linkedin.com/in/vedgshah/" target="_blank" aria-label="LinkedIn" title="LinkedIn">
             <svg width="26" height="26" viewBox="0 0 24 24" fill="#ffffff" role="img" aria-hidden="true">
@@ -52,9 +85,9 @@
             </svg>
           </a>
         </p>
-      </div>
+    </div>
 
-      <div class="one column tabs">
+    <div class="one column tabs">
         <p class="tabs">
           <a href="https://github.com/dev-ved30" target="_blank" aria-label="GitHub" title="GitHub">
             <svg width="26" height="26" viewBox="0 0 24 24" fill="#ffffff" role="img" aria-hidden="true">
@@ -70,134 +103,43 @@
         </p>
     </div>
 
-  </header>
+  </header> -->
 
   <section class="row frontpagetext">
     <img src="images/profile.jpg" alt="Profile" width="200">
     <br>
-    <h1>Ved Shah</h1>
-    <p><b>Northwestern University</b></p>
-    <p><b>Astrophysics x Machine Learning</b></p>
-    <!-- <input type="submit" value="About me" onClick="document.getElementById('home').scrollIntoView();" id="scroll"> -->
+    <h1>Hi, I'm <a href="about.html" class="name-link">Ved.</a></h1>
+    <p><b>I work in AstroAI</b></p>
+    <div class="social-icons">
+      <a href="https://github.com/dev-ved30" target="_blank" aria-label="GitHub" title="GitHub">
+        <img src="assets/github.svg" width="28" height="28" alt="GitHub">
+      </a>
+      <a href="https://www.linkedin.com/in/vedgshah/" target="_blank" aria-label="LinkedIn" title="LinkedIn">
+        <img src="assets/linkedin.svg" width="30" height="30" alt="LinkedIn">
+      </a>
+      <a href="https://ciera.northwestern.edu/directory/ved-shah/" aria-label="Email" title="Email">
+        <img src="assets/inbox.svg" width="30" height="30" alt="Email">
+      </a>
+    </div>
   </section>
   <div id="particle-canvas"></div>
 
-  <section class="row home" id="home">
 
-
-    <!-- About me  -->
-  <h1 style="text-align:justify; padding-left: 20%;">ABOUT ME</h1>
-  <hr style="width:50%;text-align:left;margin-left:20%">
-    <p style="padding-left: 20%; padding-right: 20%; text-align:justify;">
-        I'm a PhD student at Northwestern University's Department of Physics and Astronomy, working with Professor Adam Miller. I split my time between the Center for Interdisciplinary Exploration and Research in Astrophysics (CIERA) and the SkAI Institute. 
-        I graduated with <b>James Scholar Honors</b> from the University of Illinois Urbana-Champaign with a Bachelors in Computer Science and Astronomy and a minor in Statistics. 
-        At Illinois I was a recipient of the  <b>Stanley Wyatt Memorial Award</b>, presented to the graduating Astronomy major with the most outstanding GPA and track record of 
-        undergraduate research. During my time there, I also received the <b>2021 LSSTC Science Catalyst Grant</b>, the <b>2022 Research Park Best Technical Innovator Award (Finalist)</b>, and the <b>2024 Preble Fellowship</b> for my research and engineering 
-        work in multi-messenger astronomy and machine learning. I did my undergraduate thesis work with Professor Gautham Narayan, working on modelling kilonova discovery rates and developing new ML methods to find rare transients.
-        <br>
-        <br>
-        In the past, I have interned in both research and engineering roles at Country Financial, the National Centre for Supercomputing Applications (NCSA), and 
-        IIT Bombay. Fundamentally, I am interested in applying computational methods to solve scientific problems.
-        <br>
-        <br>
-    </p>
-
-        <!-- About me  -->
-  <h1 style="text-align:justify; padding-left: 20%;">RESEARCH</h1>
-  <hr style="width:50%;text-align:left;margin-left:20%">
-    <p style="padding-left: 20%; padding-right: 20%; text-align:justify;">
-    My research focuses on using machine learning and statistics to make sense of rapidly changing astronomical phenomena in large surveys. I work at the intersection of time-domain astronomy and computational astrophysics, building classification and 
-    anomaly-detection methods to identify rare or unusual transients—such as kilonovae and other explosive events—in massive data streams from projects like the Legacy Survey of Space and Time (LSST), the Zwicky Transient Facility (ZTF), and LS4. In the 
-    past, a major part of my work involved modeling kilonova discovery rates and developing methods to orchestrate follow-up observations, helping astronomers find electromagnetic counterparts to gravitational-wave events more efficiently.
-    </p>
-
-    <!-- Publications -->
-  <h1 style="text-align:justify; padding-left: 20%;">PUBLICATIONS</h1>
-  <hr style="width:50%;text-align:left;margin-left:20%">
-    <p style="padding-left: 20%; padding-right: 20%; text-align:justify;">
-      You can find a complete list of my publication on <a style="color: #56baed;" href="https://scholar.google.com/citations?user=yOuOzAwAAAAJ" target="_blank">Google Scholar</a>, <a style="color: #56baed;" href="https://ui.adsabs.harvard.edu/public-libraries/X5KGbQvlTMGev08r01DNOA" target="_blank">ADS</a>, or on my <a href="assets/Ved_Shah_CV.pdf" target="_blank">CV</a>.
-      <br>
-      <br>
-      <b>Selected First Author Publications:</b>
-      <br>
-      <br>
-      [3] <b>Shah, V. G.,</b> Gagliano, A., Malanchev, K., Narayan, G., Malz, A., & the LSST Dark Energy Science Collaboration (2025). 
-      ORACLE: A Real-Time, Hierarchical, Deep-Learning Photometric Classifier for the LSST. The Astrophysical Journal 995 (2025) 1, 4.
-      <br>
-      <br>
-      <!-- Enumerate publications here -->
-      [2] <b>Shah, V. G.,</b> Foley, R. J., Narayan, G. (2025). The Fastest Path to Discovering the Second Electromagnetic
-      Counterpart to a Gravitational Wave Event. Publications of the Astronomical Society of the Pacific, 137(2),
-      p.024101.
-      <br>
-      <br>
-      [1] <b>Shah, V. G.,</b> Narayan, G., Perkins, H. M., Foley, R. J., Chatterjee, D., Cousins, B., & Macias, P. (2024). 
-      Predictions for electromagnetic counterparts to Neutron Star mergers discovered during LIGO-Virgo-KAGRA
-      observing runs 4 and 5. Monthly Notices of the Royal Astronomical Society, 528(2), 1109-1124.
-    </p>
-
-    <!-- <div class="publication-links" style="padding-left: 20%; padding-right: 20%;">
-      <a class="publication-link" href="https://scholar.google.com/citations?user=yOuOzAwAAAAJ" target="_blank" rel="noopener">
-        Google Scholar
-      </a>
-      <a class="publication-link" href="https://ui.adsabs.harvard.edu/search/q=author%3AShah%2C%20Ved&sort=date%20desc" target="_blank" rel="noopener">
-        NASA ADS   
-      </a>
-    </div> -->
-
-    <!-- Find me -->
-  <h1 style="text-align:justify; padding-left: 20%;"">REACH OUT</h1>
-  <hr style="width:50%;text-align:left;margin-left:20%">
-    <p style="padding-left: 20%; padding-right: 20%; text-align:justify;">
-      Feel free to reach out over email or LinkedIn if you want to chat!
-      <br>
-      <br>
-      <b>Email: </b><a style="color: #56baed;" href="https://ciera.northwestern.edu/directory/ved-shah/" target="_blank"> Northwestern Directory</a> 
-      <br>
-      <b>LinkedIn: </b><a style="color: #56baed;" href="https://linkedin.com/in/vedgshah" target="_blank">@vedgshah</a> 
-      <br>
-      <b>Github: </b><a style="color: #56baed;" href="https://github.com/dev-ved30" target="_blank">@dev-ved30</a>
-      <br>
-      <b>ORCiD: </b><a style="color: #56baed;" href="https://orcid.org/0009-0009-1590-2318" target="_blank">0009-0009-1590-2318</a>
-      <br>
-      <br>
-      PS: Direct email links are behind the Northwestern directory to keep the bots away 🤖
-      <br>
-      <br>
-    </p> 
-
-
-  </section>
-
-
-
-  <footer class="row footer_1">
-    <p>
-      <b>&lt;/&gt;</b> with ☕️ 
-      <br>
-      © Ved Shah, 2024-2026
-    </p>
-  </footer>
-
-</body>
 
 </html>
 
 <script>
-    // particle.min.js hosted on GitHub
-    // Scroll down for initialisation code
+  // particle.min.js hosted on GitHub
+  !function(a){var b="object"==typeof self&&self.self===self&&self||"object"==typeof global&&global.global===global&&global;"function"==typeof define&&define.amd?define(["exports"],function(c){b.ParticleNetwork=a(b,c)}):"object"==typeof module&&module.exports?module.exports=a(b,{}):b.ParticleNetwork=a(b,{})}(function(a,b){var c=function(a){this.canvas=a.canvas,this.g=a.g,this.particleColor=a.options.particleColor,this.x=Math.random()*this.canvas.width,this.y=Math.random()*this.canvas.height,this.velocity={x:(Math.random()-.5)*a.options.velocity,y:(Math.random()-.5)*a.options.velocity}};return c.prototype.update=function(){(this.x>this.canvas.width+20||this.x<-20)&&(this.velocity.x=-this.velocity.x),(this.y>this.canvas.height+20||this.y<-20)&&(this.velocity.y=-this.velocity.y),this.x+=this.velocity.x,this.y+=this.velocity.y},c.prototype.h=function(){this.g.beginPath(),this.g.fillStyle=this.particleColor,this.g.globalAlpha=.7,this.g.arc(this.x,this.y,1.5,0,2*Math.PI),this.g.fill()},b=function(a,b){this.i=a,this.i.size={width:this.i.offsetWidth,height:this.i.offsetHeight},b=void 0!==b?b:{},this.options={particleColor:void 0!==b.particleColor?b.particleColor:"#fff",background:void 0!==b.background?b.background:"#1a252f",interactive:void 0!==b.interactive?b.interactive:!0,velocity:this.setVelocity(b.speed),density:this.j(b.density)},this.init()},b.prototype.init=function(){if(this.k=document.createElement("div"),this.i.appendChild(this.k),this.l(this.k,{position:"absolute",top:0,left:0,bottom:0,right:0,"z-index":1}),/(^#[0-9A-F]{6}$)|(^#[0-9A-F]{3}$)/i.test(this.options.background))this.l(this.k,{background:this.options.background});else{if(!/\.(gif|jpg|jpeg|tiff|png)$/i.test(this.options.background))return console.error("Please specify a valid background image or hexadecimal color"),!1;this.l(this.k,{background:'url("'+this.options.background+'") no-repeat center',"background-size":"cover"})}if(!/(^#[0-9A-F]{6}$)|(^#[0-9A-F]{3}$)/i.test(this.options.particleColor))return console.error("Please specify a valid particleColor hexadecimal color"),!1;this.canvas=document.createElement("canvas"),this.i.appendChild(this.canvas),this.g=this.canvas.getContext("2d"),this.canvas.width=this.i.size.width,this.canvas.height=this.i.size.height,this.l(this.i,{position:"relative"}),this.l(this.canvas,{"z-index":"20",position:"relative"}),window.addEventListener("resize",function(){return this.i.offsetWidth===this.i.size.width&&this.i.offsetHeight===this.i.size.height?!1:(this.canvas.width=this.i.size.width=this.i.offsetWidth,this.canvas.height=this.i.size.height=this.i.offsetHeight,clearTimeout(this.m),void(this.m=setTimeout(function(){this.o=[];for(var a=0;a<this.canvas.width*this.canvas.height/this.options.density;a++)this.o.push(new c(this));this.options.interactive&&this.o.push(this.p),requestAnimationFrame(this.update.bind(this))}.bind(this),500)))}.bind(this)),this.o=[];for(var a=0;a<this.canvas.width*this.canvas.height/this.options.density;a++)this.o.push(new c(this));this.options.interactive&&(this.p=new c(this),this.p.velocity={x:0,y:0},this.o.push(this.p),this.canvas.addEventListener("mousemove",function(a){this.p.x=a.clientX-this.canvas.offsetLeft,this.p.y=a.clientY-this.canvas.offsetTop}.bind(this)),this.canvas.addEventListener("mouseup",function(a){this.p.velocity={x:(Math.random()-.5)*this.options.velocity,y:(Math.random()-.5)*this.options.velocity},this.p=new c(this),this.p.velocity={x:0,y:0},this.o.push(this.p)}.bind(this))),requestAnimationFrame(this.update.bind(this))},b.prototype.update=function(){this.g.clearRect(0,0,this.canvas.width,this.canvas.height),this.g.globalAlpha=1;for(var a=0;a<this.o.length;a++){this.o[a].update(),this.o[a].h();for(var b=this.o.length-1;b>a;b--){var c=Math.sqrt(Math.pow(this.o[a].x-this.o[b].x,2)+Math.pow(this.o[a].y-this.o[b].y,2));c>120||(this.g.beginPath(),this.g.strokeStyle=this.options.particleColor,this.g.globalAlpha=(120-c)/120,this.g.lineWidth=.7,this.g.moveTo(this.o[a].x,this.o[a].y),this.g.lineTo(this.o[b].x,this.o[b].y),this.g.stroke())}}0!==this.options.velocity&&requestAnimationFrame(this.update.bind(this))},b.prototype.setVelocity=function(a){return"fast"===a?1:"slow"===a?.33:"none"===a?0:.66},b.prototype.j=function(a){return"high"===a?5e3:"low"===a?2e4:isNaN(parseInt(a,10))?1e4:a},b.prototype.l=function(a,b){for(var c in b)a.style[c]=b[c]},b});
 
-    !function(a){var b="object"==typeof self&&self.self===self&&self||"object"==typeof global&&global.global===global&&global;"function"==typeof define&&define.amd?define(["exports"],function(c){b.ParticleNetwork=a(b,c)}):"object"==typeof module&&module.exports?module.exports=a(b,{}):b.ParticleNetwork=a(b,{})}(function(a,b){var c=function(a){this.canvas=a.canvas,this.g=a.g,this.particleColor=a.options.particleColor,this.x=Math.random()*this.canvas.width,this.y=Math.random()*this.canvas.height,this.velocity={x:(Math.random()-.5)*a.options.velocity,y:(Math.random()-.5)*a.options.velocity}};return c.prototype.update=function(){(this.x>this.canvas.width+20||this.x<-20)&&(this.velocity.x=-this.velocity.x),(this.y>this.canvas.height+20||this.y<-20)&&(this.velocity.y=-this.velocity.y),this.x+=this.velocity.x,this.y+=this.velocity.y},c.prototype.h=function(){this.g.beginPath(),this.g.fillStyle=this.particleColor,this.g.globalAlpha=.7,this.g.arc(this.x,this.y,1.5,0,2*Math.PI),this.g.fill()},b=function(a,b){this.i=a,this.i.size={width:this.i.offsetWidth,height:this.i.offsetHeight},b=void 0!==b?b:{},this.options={particleColor:void 0!==b.particleColor?b.particleColor:"#fff",background:void 0!==b.background?b.background:"#1a252f",interactive:void 0!==b.interactive?b.interactive:!0,velocity:this.setVelocity(b.speed),density:this.j(b.density)},this.init()},b.prototype.init=function(){if(this.k=document.createElement("div"),this.i.appendChild(this.k),this.l(this.k,{position:"absolute",top:0,left:0,bottom:0,right:0,"z-index":1}),/(^#[0-9A-F]{6}$)|(^#[0-9A-F]{3}$)/i.test(this.options.background))this.l(this.k,{background:this.options.background});else{if(!/\.(gif|jpg|jpeg|tiff|png)$/i.test(this.options.background))return console.error("Please specify a valid background image or hexadecimal color"),!1;this.l(this.k,{background:'url("'+this.options.background+'") no-repeat center',"background-size":"cover"})}if(!/(^#[0-9A-F]{6}$)|(^#[0-9A-F]{3}$)/i.test(this.options.particleColor))return console.error("Please specify a valid particleColor hexadecimal color"),!1;this.canvas=document.createElement("canvas"),this.i.appendChild(this.canvas),this.g=this.canvas.getContext("2d"),this.canvas.width=this.i.size.width,this.canvas.height=this.i.size.height,this.l(this.i,{position:"relative"}),this.l(this.canvas,{"z-index":"20",position:"relative"}),window.addEventListener("resize",function(){return this.i.offsetWidth===this.i.size.width&&this.i.offsetHeight===this.i.size.height?!1:(this.canvas.width=this.i.size.width=this.i.offsetWidth,this.canvas.height=this.i.size.height=this.i.offsetHeight,clearTimeout(this.m),void(this.m=setTimeout(function(){this.o=[];for(var a=0;a<this.canvas.width*this.canvas.height/this.options.density;a++)this.o.push(new c(this));this.options.interactive&&this.o.push(this.p),requestAnimationFrame(this.update.bind(this))}.bind(this),500)))}.bind(this)),this.o=[];for(var a=0;a<this.canvas.width*this.canvas.height/this.options.density;a++)this.o.push(new c(this));this.options.interactive&&(this.p=new c(this),this.p.velocity={x:0,y:0},this.o.push(this.p),this.canvas.addEventListener("mousemove",function(a){this.p.x=a.clientX-this.canvas.offsetLeft,this.p.y=a.clientY-this.canvas.offsetTop}.bind(this)),this.canvas.addEventListener("mouseup",function(a){this.p.velocity={x:(Math.random()-.5)*this.options.velocity,y:(Math.random()-.5)*this.options.velocity},this.p=new c(this),this.p.velocity={x:0,y:0},this.o.push(this.p)}.bind(this))),requestAnimationFrame(this.update.bind(this))},b.prototype.update=function(){this.g.clearRect(0,0,this.canvas.width,this.canvas.height),this.g.globalAlpha=1;for(var a=0;a<this.o.length;a++){this.o[a].update(),this.o[a].h();for(var b=this.o.length-1;b>a;b--){var c=Math.sqrt(Math.pow(this.o[a].x-this.o[b].x,2)+Math.pow(this.o[a].y-this.o[b].y,2));c>120||(this.g.beginPath(),this.g.strokeStyle=this.options.particleColor,this.g.globalAlpha=(120-c)/120,this.g.lineWidth=.7,this.g.moveTo(this.o[a].x,this.o[a].y),this.g.lineTo(this.o[b].x,this.o[b].y),this.g.stroke())}}0!==this.options.velocity&&requestAnimationFrame(this.update.bind(this))},b.prototype.setVelocity=function(a){return"fast"===a?1:"slow"===a?.33:"none"===a?0:.66},b.prototype.j=function(a){return"high"===a?5e3:"low"===a?2e4:isNaN(parseInt(a,10))?1e4:a},b.prototype.l=function(a,b){for(var c in b)a.style[c]=b[c]},b});
-
-    // Initialisation
-
-    var canvasDiv = document.getElementById('particle-canvas');
-    var options = {
+  // Initialisation
+  var canvasDiv = document.getElementById('particle-canvas');
+  var options = {
     particleColor: '#ffffff',
     background: 'img.jpg',
     interactive: true,
     speed: 'slow',
     density: 'low'
-    };
-    var particleCanvas = new ParticleNetwork(canvasDiv, options);
+  };
+  var particleCanvas = new ParticleNetwork(canvasDiv, options);
 </script>

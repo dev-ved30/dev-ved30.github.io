@@ -1,54 +1,56 @@
+/* ===== CSS VARIABLES: TYPOGRAPHY & SPACING ===== */
 :root {
-  --page-bg: #f4f7ff;
-  --gradient-1: #f4f7ff;
-  --gradient-2: #e6ecff;
-  --gradient-3: #dde4ff;
-  --particle-gradient: radial-gradient(circle at 20% 20%, rgba(79, 209, 255, 0.25), transparent 55%),
-    radial-gradient(circle at 80% 0%, rgba(147, 128, 255, 0.3), transparent 55%),
-    linear-gradient(135deg, #f4f7ff, #ede7ff);
-  --particle-canvas-bg: #f4f7ff;
-  --panel: #ffffff;
-  --card-bg: #ffffff;
-  --hero-bg: #eef2ff;
-  --highlight-start: #eff3ff;
-  --highlight-end: #e0e7ff;
-  --card-border: rgba(15, 23, 42, 0.08);
-  --text-primary: #0f172a;
-  --text-muted: rgba(15, 23, 42, 0.7);
-  --accent: #0d9488;
-  --accent-strong: #0f766e;
-  --shadow: 0 18px 45px rgba(15, 23, 42, 0.12);
-  --glow: rgba(37, 99, 235, 0.12);
-  --grid-color: rgba(15, 23, 42, 0.08);
-  --card-inner-border: rgba(15, 23, 42, 0.06);
+  /* Border Radius */
   --radius-xl: 32px;
   --radius-lg: 24px;
   --radius-md: 16px;
   --radius-sm: 12px;
+
+  /* Light Theme Colors */
+  --color-page-bg: #f4f7ff;
+  --color-panel: #ffffff;
+  --color-card-bg: #ffffff;
+  --color-text-primary: #0f172a;
+  --color-text-muted: rgba(15, 23, 42, 0.7);
+  --color-accent: #0d9488;
+  --color-accent-strong: #0f766e;
+
+  /* Light Theme Gradients */
+  --gradient-page: radial-gradient(circle at 20% 20%, rgba(79, 209, 255, 0.25), transparent 55%),
+    radial-gradient(circle at 80% 0%, rgba(147, 128, 255, 0.3), transparent 55%),
+    linear-gradient(135deg, #f4f7ff, #ede7ff);
+  --gradient-bg: linear-gradient(135deg, #f4f7ff, #e6ecff 45%, #dde4ff);
+
+  /* Light Theme Effects */
+  --shadow: 0 18px 45px rgba(15, 23, 42, 0.12);
+  --glow: rgba(37, 99, 235, 0.12);
+  --grid-color: rgba(15, 23, 42, 0.08);
+  --card-border: rgba(15, 23, 42, 0.08);
+  --card-inner-border: rgba(15, 23, 42, 0.06);
 }
 
+/* Dark Theme */
 [data-theme="dark"] {
-  --page-bg: #05070f;
-  --gradient-1: #05070f;
-  --gradient-2: #101826;
-  --gradient-3: #1f334d;
-  --particle-gradient: radial-gradient(circle at 20% 20%, rgba(56, 189, 248, 0.28), transparent 55%),
+  /* Dark Theme Colors */
+  --color-page-bg: #05070f;
+  --color-panel: #121a2b;
+  --color-card-bg: #0c1424;
+  --color-text-primary: #f8fbff;
+  --color-text-muted: rgba(248, 251, 255, 0.7);
+  --color-accent: #7dd3fc;
+  --color-accent-strong: #38bdf8;
+
+  /* Dark Theme Gradients */
+  --gradient-page: radial-gradient(circle at 20% 20%, rgba(56, 189, 248, 0.28), transparent 55%),
     radial-gradient(circle at 80% 0%, rgba(167, 139, 250, 0.35), transparent 60%),
     linear-gradient(135deg, #05070f, #0d1120);
-  --particle-canvas-bg: #05070f;
-  --panel: #121a2b;
-  --card-bg: #0c1424;
-  --hero-bg: #101a2b;
-  --highlight-start: #152343;
-  --highlight-end: #0e1628;
-  --card-border: rgba(255, 255, 255, 0.08);
-  --text-primary: #f8fbff;
-  --text-muted: rgba(248, 251, 255, 0.7);
-  --accent: #7dd3fc;
-  --accent-strong: #38bdf8;
+  --gradient-bg: linear-gradient(135deg, #05070f, #101826 45%, #1f334d);
+
+  /* Dark Theme Effects */
   --shadow: 0 20px 60px rgba(5, 7, 15, 0.45);
   --glow: rgba(56, 189, 248, 0.14);
   --grid-color: rgba(255, 255, 255, 0.08);
+  --card-border: rgba(255, 255, 255, 0.08);
   --card-inner-border: rgba(255, 255, 255, 0.06);
 }
 
@@ -61,21 +63,20 @@ body {
   padding: 0;
   margin: 0;
   font-family: "Space Grotesk", "Nunito Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  color: var(--text-primary);
-  background: radial-gradient(circle at top, var(--glow), transparent 45%),
-    linear-gradient(135deg, var(--gradient-1), var(--gradient-2) 45%, var(--gradient-3));
+  color: var(--color-text-primary);
+  background: radial-gradient(circle at top, var(--glow), transparent 45%), var(--gradient-bg);
   min-height: 100vh;
 }
 
 a {
-  color: var(--accent);
+  color: var(--color-accent);
   text-decoration: none;
   font-weight: 500;
 }
 
 a:hover,
 a:focus-visible {
-  color: var(--accent-strong);
+  color: var(--color-accent-strong);
 }
 
 img {
@@ -102,7 +103,7 @@ body::before {
   z-index: 0;
   pointer-events: none;
   overflow: hidden;
-  background: var(--particle-gradient);
+  background: var(--gradient-page);
 }
 
 .particle-layer #particle-canvas,
@@ -115,6 +116,12 @@ body::before {
 
 .particle-layer #particle-canvas > div {
   background: transparent !important;
+}
+
+#particle-canvas {
+  width: 100%;
+  height: 100%;
+  text-align: center;
 }
 
 .app-shell {
@@ -134,7 +141,7 @@ body::before {
   border: 1px solid var(--card-border);
   border-radius: var(--radius-lg);
   backdrop-filter: blur(16px);
-  background: var(--panel);
+  background: var(--color-panel);
   margin-bottom: 2.5rem;
 }
 
@@ -151,11 +158,11 @@ body::before {
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--text-primary);
+  color: var(--color-text-primary);
 }
 
 .brand-mark {
-  background: var(--accent);
+  background: var(--color-accent);
   color: #05070f;
   width: 44px;
   height: 44px;
@@ -178,22 +185,22 @@ body::before {
 }
 
 .primary-nav a {
-  color: var(--text-muted);
+  color: var(--color-text-muted);
   font-size: 0.95rem;
 }
 
 .primary-nav a:hover,
 .primary-nav a:focus-visible {
-  color: var(--text-primary);
+  color: var(--color-text-primary);
 }
 
 .social-links a {
   font-size: 0.95rem;
-  color: var(--text-primary);
+  color: var(--color-text-primary);
 }
 
 .social-links .pill {
-  border: 1px solid var(--accent);
+  border: 1px solid var(--color-accent);
   border-radius: 999px;
   padding: 0 1.25rem;
   height: 44px;
@@ -223,8 +230,8 @@ body::before {
 
 .icon-link:hover,
 .icon-link:focus-visible {
-  border-color: var(--accent);
-  color: var(--accent);
+  border-color: var(--color-accent);
+  color: var(--color-accent);
   transform: translateY(-1px);
 }
 
@@ -233,8 +240,8 @@ body::before {
   height: 44px;
   border-radius: 50%;
   border: 1px solid var(--card-border);
-  background: var(--panel);
-  color: var(--text-primary);
+  background: var(--color-panel);
+  color: var(--color-text-primary);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -244,7 +251,7 @@ body::before {
 
 .theme-toggle:hover,
 .theme-toggle:focus-visible {
-  border-color: var(--accent);
+  border-color: var(--color-accent);
   transform: translateY(-1px);
 }
 
@@ -266,7 +273,7 @@ body::before {
 .hero {
   border-radius: var(--radius-xl);
   padding: clamp(2rem, 5vw, 4rem);
-  background: var(--card-bg);
+  background: var(--color-card-bg);
   border: 1px solid var(--card-border);
   box-shadow: var(--shadow);
   margin-bottom: 2.5rem;
@@ -286,7 +293,7 @@ body::before {
 
 .hero-copy p {
   margin: 0 0 1.5rem;
-  color: var(--text-muted);
+  color: var(--color-text-muted);
   font-size: 1.1rem;
 }
 
@@ -296,7 +303,7 @@ body::before {
   padding: 0.85rem 1.75rem;
   font-size: 1rem;
   font-weight: 600;
-  background: linear-gradient(120deg, var(--accent), var(--accent-strong));
+  background: linear-gradient(120deg, var(--color-accent), var(--color-accent-strong));
   color: #05070f;
   cursor: pointer;
   transition: transform 150ms ease, box-shadow 150ms ease;
@@ -325,13 +332,13 @@ body::before {
 .content-section {
   border-radius: var(--radius-xl);
   border: 1px solid var(--card-border);
-  background: var(--card-bg);
+  background: var(--color-card-bg);
   padding: clamp(2rem, 4vw, 3rem);
   margin-bottom: 2rem;
 }
 
 .highlight {
-  background: var(--card-bg);
+  background: var(--color-card-bg);
 }
 
 .section-heading {
@@ -345,7 +352,7 @@ body::before {
   letter-spacing: 0.25em;
   font-size: 0.8rem;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--color-accent);
   margin: 0;
 }
 
@@ -356,7 +363,7 @@ body::before {
 
 .section-body p {
   line-height: 1.7;
-  color: var(--text-muted);
+  color: var(--color-text-muted);
   font-size: 1rem;
 }
 
@@ -371,7 +378,7 @@ body::before {
   padding: 1.5rem;
   border: 1px solid var(--card-border);
   border-radius: var(--radius-md);
-  background: var(--card-bg);
+  background: var(--color-card-bg);
   box-shadow: inset 0 0 0 1px var(--card-inner-border);
 }
 
@@ -379,19 +386,19 @@ body::before {
   font-size: 0.75rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--color-accent);
 }
 
 .contact-card dd {
   margin: 0.25rem 0 0;
   font-size: 1rem;
-  color: var(--text-primary);
+  color: var(--color-text-primary);
 }
 
 .site-footer {
   text-align: center;
   padding: 2rem 0 0;
-  color: var(--text-muted);
+  color: var(--color-text-muted);
   font-size: 0.9rem;
 }
 
