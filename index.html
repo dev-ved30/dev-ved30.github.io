@@ -9,6 +9,9 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔭</text></svg>">
+
   <!-- Mobile Specific Metas
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -23,6 +26,14 @@
   <link rel="stylesheet" href="styles/skeleton.css">
   <link rel="stylesheet" href="styles/normalize.css">
   <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      background: linear-gradient(-60deg,#dd7738, #a12eb0, #392883);
+      background-attachment: fixed;
+    }
+
     .name-link {
       display: inline-block;
       color: inherit;
@@ -60,97 +71,117 @@
       background: transparent;
     }
 
-    /* Universal centering for Hero section */
-    .frontpagetext {
-      display: flex !important;
-      flex-direction: column !important;
-      justify-content: center !important;
-      align-items: center !important;
-      min-height: 100vh !important;
-      min-height: 100svh !important;
-      width: 100% !important;
-      height: 100vh !important;
-      position: relative !important;
-      margin: 0 !important; /* Critical to override skeleton.css margins */
-      padding: 2rem !important;
-      box-sizing: border-box !important;
-      text-align: center !important;
-      z-index: 10 !important;
-      background: transparent !important;
-      left: 0 !important;
-      top: 0 !important;
+    /* Container for the half-and-half layout */
+    .split-container {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      min-height: 100vh;
+      position: relative;
+      z-index: 10;
     }
 
-    /* Target ONLY the profile image */
-    .frontpagetext > img {
-      margin: 0 auto !important;
-      border-radius: 50% !important;
-      display: block !important;
-      width: 180px !important;
-      height: 180px !important;
-      object-fit: cover !important;
-      border: 4px solid rgba(255, 255, 255, 0.15);
-      box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+    /* Left pane (Hero) */
+    .left-pane {
+      flex: 0 0 35%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      box-sizing: border-box;
+      overflow: hidden;
     }
 
-    .frontpagetext h1 {
-      margin: 1.5rem 0 1rem !important;
-      font-size: clamp(2.5rem, 8vw, 4rem) !important;
-      font-weight: 800 !important;
-      color: #ffffff !important;
-      text-shadow: 0 4px 12px rgba(0,0,0,0.25);
-      line-height: 1.2 !important;
+    .left-pane > img {
+      border-radius: 50%;
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border: 4px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      margin-bottom: 2rem;
     }
 
-    .frontpagetext p {
-      margin: 0 0 2.5rem !important;
-      font-size: clamp(1.4rem, 4.5vw, 1.9rem) !important;
-      color: #ffffff !important;
-      opacity: 0.95;
-      letter-spacing: 0.02em;
+    .left-pane h1 {
+      margin: 0 0 1rem;
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      font-weight: 800;
+      color: #ffffff;
     }
 
-    /* Social icons layout */
-    .social-icons {
-      display: flex !important;
-      justify-content: center !important;
-      gap: 24px !important;
-      margin: 0 !important;
+    .left-pane p {
+      margin: 0 0 2rem;
+      font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+      color: #ffffff;
+      opacity: 0.9;
     }
 
-    .social-icons img {
-      width: 30px !important;
-      height: 30px !important;
-      filter: brightness(0) invert(1) !important;
-      opacity: 1 !important;
-      transition: transform 0.2s ease, opacity 0.2s ease;
+    /* Right pane (Content) */
+    .right-pane {
+      flex: 1;
+      padding: 8rem 12rem;
+      box-sizing: border-box;
+      background-color: white;
+      color: black;
+      min-height: 100vh;
     }
 
-    .social-icons a:hover img {
-      opacity: 1;
-      transform: translateY(-1px);
+    .right-pane h4 {
+      color: #333;
+      font-weight: 700;
+      margin-top: 3rem;
+      margin-bottom: 1.5rem;
+      font-size: 3.5rem;
     }
 
+    .right-pane h4:first-child {
+      margin-top: 0;
+    }
+
+    .right-pane p {
+      color: #222;
+      line-height: 1.8;
+      font-size: 1.65rem;
+    }
+
+    .right-pane a {
+      color: #0077b5;
+      text-decoration: underline;
+    }
+
+    .right-pane b, .right-pane strong {
+      color: black;
+    }
+
+    /* Keep particle canvas fixed in background */
     #particle-canvas {
-      position: absolute !important;
-      top: 0 !important;
-      left: 0 !important;
-      width: 100% !important;
-      height: 100% !important;
+      position: fixed !important;
+      inset: 0 !important;
       z-index: 1 !important;
       pointer-events: none !important;
     }
 
-    .home h4, .home p {
-      padding-left: clamp(1.5rem, 15vw, 20%) !important;
-      padding-right: clamp(1.5rem, 15vw, 20%) !important;
-      max-width: 1400px;
-      margin: 0 auto !important;
-    }
-
-    @media (max-width: 768px) {
-      .frontpagetext h1 {
-        font-size: 2.4rem !important;
+    @media (max-width: 1024px) {
+      .split-container {
+        flex-direction: column;
+        overflow: auto;
+        height: auto;
+      }
+      .left-pane {
+        flex: none;
+        height: 100vh;
+        position: relative;
+        padding: 4rem 2rem;
+      }
+      .right-pane {
+        padding: 10rem 6rem;
+        max-width: 100%;
+        overflow: visible;
       }
     }
   </style>
@@ -161,33 +192,31 @@
   <!-- CSS -->
   <link rel="stylesheet" href="styles/background.css">
 
-  <section class="row frontpagetext">
-    <img src="images/profile.jpg" alt="Profile" width="200">
-    <h1>Hi, I'm <a href="#about-me" class="name-link">Ved </a></h1>
-    <p><b>I use ML to understand the Universe</b></p>
-    <div class="social-icons">
-      <a href="https://github.com/dev-ved30" target="_blank" aria-label="GitHub" title="GitHub">
-        <img src="assets/github.svg" width="28" height="28" alt="GitHub">
-      </a>
-      <a href="https://www.linkedin.com/in/vedgshah/" target="_blank" aria-label="LinkedIn" title="LinkedIn">
-        <img src="assets/linkedin.svg" width="30" height="30" alt="LinkedIn">
-      </a>
-      <a href="https://ciera.northwestern.edu/directory/ved-shah/" aria-label="Email" title="Email">
-        <img src="assets/inbox.svg" width="30" height="30" alt="Email">
-      </a>
-    </div>
-  </section>
   <div id="particle-canvas"></div>
 
+  <div class="split-container">
+    <section class="left-pane">
+      <img src="images/profile.jpg" alt="Profile">
+      <h1>Hi, I'm <a href="#about-me" class="name-link">Ved </a></h1>
+      <p><b>Astrophysics x ML</b></p>
+      <div class="social-icons">
+        <a href="https://github.com/dev-ved30" target="_blank" aria-label="GitHub" title="GitHub">
+          <img src="assets/github.svg" width="28" height="28" alt="GitHub">
+        </a>
+        <a href="https://www.linkedin.com/in/vedgshah/" target="_blank" aria-label="LinkedIn" title="LinkedIn">
+          <img src="assets/linkedin.svg" width="30" height="30" alt="LinkedIn">
+        </a>
+        <a href="https://ciera.northwestern.edu/directory/ved-shah/" aria-label="Email" title="Email">
+          <img src="assets/inbox.svg" width="30" height="30" alt="Email">
+        </a>
+      </div>
+    </section>
 
-  <section class="row home" id="home">
-
-
-    <!-- About me  -->
-  <h4 id="about-me" style="text-align:justify;">About Me</h4>
-  <!-- <hr style="width:50%;text-align:left;margin-left:20%"> -->
-    <br>
-    <p style="text-align:justify;">
+    <div class="right-pane">
+      <!-- About me  -->
+      <h4 id="about-me" style="text-align:justify;">About Me</h4>
+      <br>
+      <p style="text-align:justify;">
         I'm a PhD student at Northwestern University's Department of Physics and Astronomy, working with Professor Adam Miller. I split my time between the Center for Interdisciplinary Exploration and Research in Astrophysics (CIERA) and the SkAI Institute. 
         I graduated with <b>James Scholar Honors</b> from the University of Illinois Urbana-Champaign with a Bachelors in Computer Science and Astronomy and a minor in Statistics. 
         At Illinois I was a recipient of the  <b>Stanley Wyatt Memorial Award</b>, presented to the graduating Astronomy major with the most outstanding GPA and track record of 
@@ -197,85 +226,64 @@
         <br>
         In the past, I have interned in both research and engineering roles at Country Financial, the National Centre for Supercomputing Applications (NCSA), and 
         IIT Bombay. Fundamentally, I am interested in applying computational methods to solve scientific problems.
+      </p>
+
+      <!-- Research  -->
+      <h4 style="text-align:justify;">Research</h4>
+      <br>
+      <p style="text-align:justify;">
+        My research focuses on using machine learning and statistics to make sense of rapidly changing astronomical phenomena in large surveys. I work at the intersection of time-domain astronomy and computational astrophysics, building classification and 
+        anomaly-detection methods to identify rare or unusual transients—such as kilonovae and other explosive events—in massive data streams from projects like the Legacy Survey of Space and Time (LSST), the Zwicky Transient Facility (ZTF), and LS4. In the 
+        past, a major part of my work involved modeling kilonova discovery rates and developing methods to orchestrate follow-up observations, helping astronomers find electromagnetic counterparts to gravitational-wave events more efficiently.
+      </p>
+
+      <!-- Publications -->
+      <h4 style="text-align:justify;">Publications</h4>
+      <br>
+      <p style="text-align:justify;">
+        <b>Selected First-Author Publications:</b>
         <br>
         <br>
-    </p>
+        [3] <b>Shah, V. G.,</b> Gagliano, A., Malanchev, K., Narayan, G., Malz, A., & the LSST Dark Energy Science Collaboration (2025). 
+        ORACLE: A Real-Time, Hierarchical, Deep-Learning Photometric Classifier for the LSST. The Astrophysical Journal, 995(1), 4.
+        <br>
+        <br>
+        [2] <b>Shah, V. G.,</b> Foley, R. J., Narayan, G. (2025). The Fastest Path to Discovering the Second Electromagnetic
+        Counterpart to a Gravitational Wave Event. Publications of the Astronomical Society of the Pacific, 137(2),
+        p.024101.
+        <br>
+        <br>
+        [1] <b>Shah, V. G.,</b> Narayan, G., Perkins, H. M., Foley, R. J., Chatterjee, D., Cousins, B., & Macias, P. (2024). 
+        Predictions for electromagnetic counterparts to Neutron Star mergers discovered during LIGO-Virgo-KAGRA
+        observing runs 4 and 5. Monthly Notices of the Royal Astronomical Society, 528(2), 1109-1124.
+        <br>
+        <br>
+        You can find a complete list of my publication on <a href="https://scholar.google.com/citations?user=yOuOzAwAAAAJ" target="_blank">Google Scholar</a>, <a href="https://ui.adsabs.harvard.edu/public-libraries/X5KGbQvlTMGev08r01DNOA" target="_blank">ADS</a>, or on my <a href="assets/Ved_Shah_CV.pdf" target="_blank">CV</a>.
+      </p>
 
-        <!-- Research  -->
-  <h4 style="text-align:justify;">Research</h4>
-  <!-- <hr style="width:50%;text-align:left;margin-left:20%"> -->
-    <br>
-    <p style="text-align:justify;">
-      My research focuses on using machine learning and statistics to make sense of rapidly changing astronomical phenomena in large surveys. I work at the intersection of time-domain astronomy and computational astrophysics, building classification and 
-      anomaly-detection methods to identify rare or unusual transients—such as kilonovae and other explosive events—in massive data streams from projects like the Legacy Survey of Space and Time (LSST), the Zwicky Transient Facility (ZTF), and LS4. In the 
-      past, a major part of my work involved modeling kilonova discovery rates and developing methods to orchestrate follow-up observations, helping astronomers find electromagnetic counterparts to gravitational-wave events more efficiently.
+      <!-- Find me -->
+      <!-- <div style="display: flex; justify-content: center; gap: 24px; margin-top: 5rem;" class="reach-out-icons">
+        <a href="https://github.com/dev-ved30" target="_blank" aria-label="GitHub" title="GitHub">
+          <img src="assets/github_black.svg" width="28" height="28" alt="GitHub">
+        </a>
+        <a href="https://linkedin.com/in/vedgshah" target="_blank" aria-label="LinkedIn" title="LinkedIn">
+          <img src="assets/linkedin_black.svg" width="28" height="28" alt="LinkedIn">
+        </a>
+        <a href="https://ciera.northwestern.edu/directory/ved-shah/" target="_blank" aria-label="Email" title="Email">
+          <img src="assets/inbox_black.svg" width="28" height="28" alt="Email">
+        </a>
+      </div> -->
       <br>
       <br>
-    </p>
-
-    <!-- Publications -->
-  <h4 style="text-align:justify;">Publications</h4>
-  <!-- <hr style="width:50%;text-align:left;margin-left:20%"> -->
-   <br>
-    <p style="text-align:justify;">
-      <b>Selected First-Author Publications:</b>
-      <br>
-      <br>
-      [3] <b>Shah, V. G.,</b> Gagliano, A., Malanchev, K., Narayan, G., Malz, A., & the LSST Dark Energy Science Collaboration (2025). 
-      ORACLE: A Real-Time, Hierarchical, Deep-Learning Photometric Classifier for the LSST. The Astrophysical Journal, 995(1), 4.
-      <br>
-      <br>
-      <!-- Enumerate publications here -->
-      [2] <b>Shah, V. G.,</b> Foley, R. J., Narayan, G. (2025). The Fastest Path to Discovering the Second Electromagnetic
-      Counterpart to a Gravitational Wave Event. Publications of the Astronomical Society of the Pacific, 137(2),
-      p.024101.
-      <br>
-      <br>
-      [1] <b>Shah, V. G.,</b> Narayan, G., Perkins, H. M., Foley, R. J., Chatterjee, D., Cousins, B., & Macias, P. (2024). 
-      Predictions for electromagnetic counterparts to Neutron Star mergers discovered during LIGO-Virgo-KAGRA
-      observing runs 4 and 5. Monthly Notices of the Royal Astronomical Society, 528(2), 1109-1124.
-      <br>
-      <br>
-      You can find a complete list of my publication on <a style="color: #56baed;" href="https://scholar.google.com/citations?user=yOuOzAwAAAAJ" target="_blank">Google Scholar</a>, <a style="color: #56baed;" href="https://ui.adsabs.harvard.edu/public-libraries/X5KGbQvlTMGev08r01DNOA" target="_blank">ADS</a>, or on my <a href="assets/Ved_Shah_CV.pdf" target="_blank">CV</a>.
-      <br>
-      <br>
-      <br>
-    </p>
-
-    <!-- <div class="publication-links" style="padding-left: 20%; padding-right: 20%;">
-      <a class="publication-link" href="https://scholar.google.com/citations?user=yOuOzAwAAAAJ" target="_blank" rel="noopener">
-        Google Scholar
-      </a>
-      <a class="publication-link" href="https://ui.adsabs.harvard.edu/search/q=author%3AShah%2C%20Ved&sort=date%20desc" target="_blank" rel="noopener">
-        NASA ADS   
-      </a>
-    </div> -->
-
-    <!-- Find me -->
-    <div style="display: flex; justify-content: center; gap: 24px; margin-top: 16px;" class="reach-out-icons">
-      <a href="https://github.com/dev-ved30" target="_blank" aria-label="GitHub" title="GitHub">
-        <img src="assets/github_black.svg" width="28" height="28" alt="GitHub">
-      </a>
-      <a href="https://linkedin.com/in/vedgshah" target="_blank" aria-label="LinkedIn" title="LinkedIn">
-        <img src="assets/linkedin_black.svg" width="28" height="28" alt="LinkedIn">
-      </a>
-      <a href="https://ciera.northwestern.edu/directory/ved-shah/" target="_blank" aria-label="Email" title="Email">
-        <img src="assets/inbox_black.svg" width="28" height="28" alt="Email">
-      </a>
+      <p style="text-align: center;">
+        <b>&lt;/&gt;</b> with 🧋 
+        <br>
+        © Ved Shah, 2024-2026
+      </p>
     </div>
-    <br>
-    <br>
-    <p>
-      <b>&lt;/&gt;</b> with 🧋 
-      <br>
-      © Ved Shah, 2024-2026
-    </p>
-    <br>
-  </section>
+  </div>
 
-
-<!-- 
-  <footer class="row footer_1">
+  <!-- <footer class="row footer_1">
     <p>
       <b>&lt;/&gt;</b> with ☕️ 
       <br>
