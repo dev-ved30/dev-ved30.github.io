@@ -36,17 +36,11 @@
 
     .name-link {
       display: inline-block;
-      color: inherit;
+      color: #a63df1;
       text-decoration: none;
-      background-image: linear-gradient(white, white);
-      background-size: 0% 2px;
-      background-repeat: no-repeat;
-      background-position: left bottom;
-      transition: background-size 300ms ease;
     }
     .name-link:hover {
-      color: inherit;
-      background-size: 100% 2px;
+      color: #a63df1;
     }
     .social-icons {
       display: flex;
@@ -150,8 +144,14 @@
     }
 
     .right-pane a {
-      color: #0077b5;
-      text-decoration: underline;
+      color: #a63df1;
+      text-decoration: none;
+    }
+
+    .right-pane a:hover,
+    .right-pane a:focus-visible,
+    .right-pane a:visited {
+      color: #a63df1;
     }
 
     .right-pane b, .right-pane strong {
@@ -203,7 +203,7 @@
   <div class="split-container">
     <section class="left-pane">
       <img src="images/profile.jpg" alt="Profile">
-      <h1>Hi, I'm <a href="#about-me" class="name-link">Ved </a></h1>
+      <h1>Hi, I'm Ved</h1>
       <p><b>Astrophysics x ML</b></p>
       <div class="social-icons">
         <a href="https://github.com/dev-ved30" target="_blank" aria-label="GitHub" title="GitHub">
@@ -220,13 +220,15 @@
 
     <div class="right-pane">
       <!-- About me  -->
-      <h4 id="about-me" style="text-align:justify;">About Me</h4>
+      <h4 id="about-me" style="text-align:justify;"><a href="#about-me" class="anchor" style="color: lightgrey;">#</a> About Me</h4>
       <br>
       <p style="text-align:justify;">
         I'm a PhD student at Northwestern University's Department of Physics and Astronomy, working with Professor Adam Miller. I split my time between the Center for Interdisciplinary Exploration and Research in Astrophysics (CIERA) and the SkAI Institute. 
+        <br>
+        <br>
         I graduated with <b>James Scholar Honors</b> from the University of Illinois Urbana-Champaign with a Bachelors in Computer Science and Astronomy and a minor in Statistics. 
         At Illinois I was a recipient of the  <b>Stanley Wyatt Memorial Award</b>, presented to the graduating Astronomy major with the most outstanding GPA and track record of 
-        undergraduate research. During my time there, I also received the <b>2021 LSSTC Science Catalyst Grant</b>, the <b>2022 Research Park Best Technical Innovator Award (Finalist)</b>, and the <b>2024 Preble Fellowship</b> for my research and engineering 
+        undergraduate research. During my time there, I also received the <b>2021 LSSTC Science Catalyst Grant</b>, the <b>2022 Research Park Best Technical Innovator Award</b>, and the <b>2024 Preble Fellowship</b> for my research and engineering 
         work in multi-messenger astronomy and machine learning. I did my undergraduate thesis work with Professor Gautham Narayan, working on modelling kilonova discovery rates and developing new ML methods to find rare transients.
         <br>
         <br>
@@ -235,16 +237,16 @@
       </p>
 
       <!-- Research  -->
-      <h4 style="text-align:justify;">Research</h4>
+      <h4 id="research" style="text-align:justify;"><a href="#research" class="anchor" style="color: lightgrey;">#</a> Research</h4>
       <br>
       <p style="text-align:justify;">
-        My research focuses on using machine learning and statistics to make sense of rapidly changing astronomical phenomena in large surveys. I work at the intersection of time-domain astronomy and computational astrophysics, building classification and 
+        My research focuses on using machine learning and statistics to make sense of rapidly changing astronomical phenomena in large surveys. I work at the intersection of time-domain astronomy and machine learning, building classification and 
         anomaly-detection methods to identify rare or unusual transients—such as kilonovae and other explosive events—in massive data streams from projects like the Legacy Survey of Space and Time (LSST), the Zwicky Transient Facility (ZTF), and LS4. In the 
         past, a major part of my work involved modeling kilonova discovery rates and developing methods to orchestrate follow-up observations, helping astronomers find electromagnetic counterparts to gravitational-wave events more efficiently.
       </p>
 
       <!-- Publications -->
-      <h4 style="text-align:justify;">Publications</h4>
+      <h4 id="publications" style="text-align:justify;"><a href="#publications" class="anchor" style="color: lightgrey;">#</a> Publications</h4>
       <br>
       <p style="text-align:justify;">
         <b>Selected First-Author Publications:</b>
@@ -264,7 +266,7 @@
         observing runs 4 and 5. Monthly Notices of the Royal Astronomical Society, 528(2), 1109-1124.
         <br>
         <br>
-        You can find a complete list of my publication on <a href="https://scholar.google.com/citations?user=yOuOzAwAAAAJ" target="_blank">Google Scholar</a>, <a href="https://ui.adsabs.harvard.edu/public-libraries/X5KGbQvlTMGev08r01DNOA" target="_blank">ADS</a>, or on my <a href="assets/Ved_Shah_CV.pdf" target="_blank">CV</a>.
+        You can find a complete list of my publication on <a href="https://scholar.google.com/citations?user=yOuOzAwAAAAJ" target="_blank">Google Scholar</a> or <a href="https://ui.adsabs.harvard.edu/public-libraries/X5KGbQvlTMGev08r01DNOA" target="_blank">NASA ADS</a>.
       </p>
 
       <!-- Find me -->
