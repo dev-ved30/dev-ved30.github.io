@@ -6,3 +6,13 @@ height: 100%;
 text-align: center;
 }
 
+::selection {
+	color: #ffffff;
+	background: rgba(166, 61, 241, 0.45);
+}
+
+::-moz-selection {
+	color: #ffffff;
+	background: rgba(166, 61, 241, 0.45);
+}
+
