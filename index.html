@@ -190,6 +190,20 @@
         overflow: visible;
       }
     }
+
+    /* Footer typewriter */
+    .typed-cursor {
+      display: inline-block;
+      margin-left: 1px;
+      font-weight: 300;
+      animation: blink 1s step-end infinite;
+    }
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .typed-cursor { animation: none; }
+    }
   </style>
 
 </head>
@@ -299,9 +313,9 @@
       <br>
       <br>
       <p style="text-align: center;">
-        <b>&lt;/&gt;</b> with 🧋 
+        <span id="typed-footer" aria-label="coded with boba, heart, coffee, and without sleep">coded with 🧋</span><span class="typed-cursor" aria-hidden="true">|</span>
         <br>
-        © Ved Shah, 2024-2026
+        <!-- © Ved Shah, 2024-2026 -->
       </p>
     </div>
   </div>
@@ -334,4 +348,51 @@
     density: 'low'
   };
   var particleCanvas = new ParticleNetwork(canvasDiv, options);
+
+  // Footer typewriter: types, pauses, deletes back to the shared prefix, types the next phrase
+  (function () {
+    var el = document.getElementById('typed-footer');
+    if (!el) return;
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    var prefix = 'coded with';
+    var phrases = [
+      'coded with 🧋',
+      'coded with ❤️',
+      'coded with ☕️',
+      'coded without 😴'
+    ];
+
+    // Split into user-visible characters so emojis aren't cut in half mid-animation
+    var seg = window.Intl && Intl.Segmenter ? new Intl.Segmenter() : null;
+    function chars(s) {
+      return seg ? Array.from(seg.segment(s), function (x) { return x.segment; }) : Array.from(s);
+    }
+
+    var i = 0, pos = chars(phrases[0]).length, deleting = true;
+    var keep = chars(prefix).length;
+
+    function tick() {
+      var c = chars(phrases[i]);
+      if (deleting) {
+        pos--;
+        el.textContent = c.slice(0, pos).join('');
+        if (pos <= keep) {
+          deleting = false;
+          i = (i + 1) % phrases.length;
+          return setTimeout(tick, 300);
+        }
+        return setTimeout(tick, 45);
+      }
+      pos++;
+      el.textContent = c.slice(0, pos).join('');
+      if (pos >= c.length) {
+        deleting = true;
+        return setTimeout(tick, 2200);
+      }
+      setTimeout(tick, 90);
+    }
+
+    setTimeout(tick, 2200);
+  })();
 </script>
